@@ -1,0 +1,102 @@
+<! HTML file for YouTube Website UI Survey>
+
+	<!DOCTYPE html>
+	<html>
+
+	<head>
+		<meta charset="utf-8">
+		<! Use External CSS file>
+			<link href="style.css" rel="stylesheet" type="text/css">
+			<title>Lab 1_CSI3125[Z]_300044108</title>
+	</head>
+
+	<body>
+		<h1>YouTube Design Survey </h1>
+		<form id="myform" action="index.php">
+			<br>
+			
+			<p>Please take a few minutes to complete this survey to help us improve the User Experience for the <a
+					href="https://www.youtube.com/">YouTube</a> website :</p>
+			<br>
+			<br>
+			<a href="https://www.youtube.com/">
+			<img class="picture" src="images/youtube_landing_page.png" title="site image" alt="https://www.youtube.com/">
+			</a>
+			<br>
+			<br>
+			<div class="question">
+				<h3> Personal Information </h3>
+				<p>First name: <br><br> <input id="input" type="text" name="firstname"></p>
+				<p>Last name: <br><br> <input id="input" type="text" name="lastname"></p>
+				<p>Age: <br><br> <input id="input" type="number" min="5" max="130" name="age"></p>
+				<br>
+				<br>
+
+				<label>What is your overall opinion of this website's UI?</label><br>
+				<br>
+				<textarea></textarea><br><br><br>
+
+				<label>Have you ever visited youtube.com before?</label><br>
+				<br>
+				<input type="radio" name="info">
+				<label>Yes</label>
+				<input type="radio" name="info">
+				<label>No</label><br><br><br>
+
+				<label>If you answered yes to the previous question, how often do you visit youtube.com? </label><br>
+				<br>
+				<input type="radio"><label>Multiple times a day</label><br>
+				<input type="radio"><label>Once a day</label><br>
+				<input type="radio"><label>Few times a week</label><br>
+				<input type="radio"><label>Once a week</label><br>
+				<input type="radio"><label>Every few weeks</label><br>
+				<input type="radio"><label>Once a month</label><br>
+				<input type="radio"><label>Every few months</label>
+				<br><br><br>
+
+				<label> How easy was it for you to find information? (1 = easy, 5 = difficult)</label><br>
+				<br>
+				<input type="radio" id="one" name="ease_of_use_rating" value=1>
+				<label for="one">1</label><br>
+
+				<input type="radio" id="two" name="ease_of_use_rating" value=2>
+				<label for="two">2</label><br>
+
+				<input type="radio" id="three" name="ease_of_use_rating" value=3>
+				<label for="three">3</label><br>
+
+				<input type="radio" id="four" name="ease_of_use_rating" value=4>
+				<label for="four">4</label><br>
+
+				<input type="radio" id="five" name="ease_of_use_rating" value=5>
+				<label for="five">5</label>
+				<br><br><br>
+
+				<label> What are youtube.com's weaknesses? Choose all that apply. </label><br>
+				<br>
+				<input type="checkbox" name="weaknesses" value="Too much content">Too much content<br>
+				<input type="checkbox" name="weaknesses" value="Not enough content">Not enough content<br>
+				<input type="checkbox" name="weaknesses" value="Hard to find what you're looking for">Hard to find what I am looking for<br>
+				<input type="checkbox" name="weaknesses" value="Slow">Slow<br>
+				<input type="checkbox" name="weaknesses" value="Not interactive enough">Not interactive enough<br>
+				<textarea id="othertext" rows="4" cols="35" placeholder="Other"></textarea>
+
+				<br><br><br>
+
+				<textarea id="commenttext" rows="4" cols="35" placeholder="Any final thoughts? Write here:"></textarea>
+				<br><br><br>
+
+				<input type="button" value="SUBMIT" onclick="alert ('Survey submitted successfully. \n Thank you for your feedback!')">
+				<br><br><br>
+
+			</div>
+
+			<br><br><br>
+			<center>Thanks for taking the time to complete this survey! </center>
+			<br>
+			<p id="signature">Site created by AntwanHak</p>
+
+		</form>
+	</body>
+
+	</html>

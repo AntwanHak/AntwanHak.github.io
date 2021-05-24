@@ -1,0 +1,73 @@
+
+html {
+  background: linear-gradient(90deg, rgba(175,0,0,0.7539215515307686) 25%, rgba(242,242,242,0.7539215515307686) 50%, rgba(175,0,0,0.7539215515307686) 75%);
+}
+ 
+body {
+  background-color: linear-gradient(90deg, rgba(175,0,0,0.7651260333234856) 14%, rgba(242,242,242,1) 100%);
+  width: 600px;
+  padding: 20px;
+  margin:auto;
+  font-family:"Times New Roman", Times, serif;
+  scroll-behavior: smooth;
+}
+
+.tab{
+	width: 10px;
+}
+
+h1 {
+	text-align: center;
+	margin: 0;
+	padding: 20px 0;
+	color: black;
+	font-family: "Times New Roman", Times, serif;
+}
+
+
+
+
+
+p {
+  color: #000000; 
+}
+
+table {
+	border: 1px solid black;
+	background-color: #f1f1c1;
+}
+
+/* Defining styling for a specific element type - each question */
+.question {
+  /*background-color: black;*/
+  color: black;
+  margin: 20px;
+  padding: 20px;
+}
+.picture {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width:450px;
+  height:300px;
+}
+
+.picture:hover{
+	width:600px;
+	height:400px;
+}
+
+/* Defining styling for a specific element with an id */
+#signature {
+  text-align: center;
+  color: #229800;
+  font-style: italic;
+  font-style: bold;
+  font-size: 75%;
+}
+#input {
+  width:200px;
+  padding:5px;
+  border-radius:5px;
+}
+
