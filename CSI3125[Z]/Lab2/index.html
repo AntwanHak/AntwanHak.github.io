@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <! This style sheet is taken from https://www.w3schools.com/howto/howto_js_tabs.asp >
+	<title>Lab 2</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+	<script src="scripts/main.js"></script>
+</head>
+
+<body>
+	<h1>Grocery Store</h1>
+    <div class="content">
+        <div id="tab" class="tab">
+            <button onclick="clickTab(event, 'client')">Client</button>
+            <button onclick="clickTab(event, 'products')">Products</button>
+            <button onclick="clickTab(event, 'cart')">Cart</button>
+        </div>
+        <div id="pageWrapper">
+            <div id = "client" hidden>
+                <h3>Client Information</h6>
+                <p>Tell us a bit about you. This will help us meet your needs, and provide a customized shopping experience for you.</p>
+                <label for="category">Choose a Category:</label>
+                <select name="category" id="category">
+                    <option value=""></option>
+                    <option value="none">None</option>
+                    <option value="lactose">Lactose Intolerant</option>
+                    <option value="nut">Nut allergy</option>
+                    <option value="organic">Organic</option>
+                </select>
+            </div>
+            <div id = "products" hidden>
+                <h3>Your targeted products</h6>
+                <p>We preselected products based on your restrictions.</p>
+                <p>Choose items to buy:</p>
+                <div id="renderProducts"></div>
+    
+                <button onclick="updateCart()">Add selected items to cart.</button>
+            </div>
+            <div id = "cart" hidden>
+                <p>Here is your cart.</p>
+                <p>You selected:</p>
+                <ul id = "selectedItems"></ul>
+                <p>Total Price is $<span id="totalPrice">0</span></p>
+            </div>
+        </div>
+    </div> 
+	
+    <p id="signature">Site created by AntwanHak</p>
+
+</body>
+
+</html>
