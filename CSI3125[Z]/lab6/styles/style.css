@@ -1,0 +1,157 @@
+a {
+    color: #176449;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 17px;
+}
+
+h1 {
+    color: #176449;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #176449;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+h5 {
+    color: #176449;
+}
+
+p {
+    text-align: left;
+}
+
+h6 {
+    text-align: center;
+}
+
+h4 {
+    color: #28b300;
+}
+
+#signature {
+    text-align: center;
+    font-style: italic;
+    font-size: 90%;
+    color: #176449;
+}
+
+
+/* Container holding the image and the text */
+
+
+/* Top left text */
+
+.top-left {
+    position: absolute;
+    top: 170px;
+    left: 170px;
+}
+
+
+/* Bottom right text */
+
+.bottom-right {
+    position: absolute;
+    bottom: 90px;
+    right: 170px;
+}
+
+
+/* modal dialog */
+
+.modal-lg {
+    max-width: 80%;
+}
+
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.modal-footer {
+    border-top: 0 none;
+}
+
+
+/* modal dialog */
+
+
+/* button */
+
+.button {
+    background-color: #176449;
+    border: none;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn1 {
+    border-radius: 15px;
+}
+
+
+/* button */
+
+
+/*icon*/
+
+i.fas {
+    color: #176449
+}
+
+
+/*icon*/
+
+
+/* Appointment form formating */
+
+fieldset {
+    border: solid;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
+}
+
+
+/* Appointment form formating */
+
+#myAlert {
+    display: none;
+}
+
+input:invalid {
+    border: 2px solid #ffcccc;
+}
+
+input:invalid:required {
+    background-color: rgb(209, 209, 209);
+}
+
+input:valid {
+    border: 2px solid rgb(31, 31, 31);
+}

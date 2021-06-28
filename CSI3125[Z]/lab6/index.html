@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Glenerin Animal Hospital</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="images/favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">
+    <link rel="stylesheet" href="jqueryui/jquery-ui.theme.css">
+    <link rel="stylesheet" href="jqueryui/jquery-ui.structure.css">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var d = new Date();
+            var curr_date = d.getDate();
+
+            /*For service 1*/
+            $('#s1appointmentDateInput').datepicker({
+                beforeShowDay: shopClosedDays,
+                firstDay: 1
+            });
+            $('select[id="s1professionalDropdown"]').change(function() {
+                var selectedValue = $(this).val();
+                var dateField = document.getElementById("s1appointmentDateInput");
+
+                if (selectedValue == 'sarah') {
+                    dateField.value = '';
+                    $('#s1appointmentDateInput').datepicker('option', {
+                        beforeShowDay: sarahNonWorkingDays
+                    });
+                } else if (selectedValue == 'emily') {
+                    dateField.value = '';
+                    $('#s1appointmentDateInput').datepicker('option', {
+                        beforeShowDay: emilyNonWorkingDays
+                    });
+                } else if (selectedValue == 'leila') {
+                    dateField.value = '';
+                    $('#s1appointmentDateInput').datepicker('option', {
+                        beforeShowDay: leilaNonWorkingDays
+                    });
+                } else if (selectedValue == '') {
+                    dateField.value = '';
+                    $('#s1appointmentDateInput').datepicker('option', {
+                        beforeShowDay: shopClosedDays
+                    });
+                }
+
+            });
+
+            /*For service 2*/
+            $('#s2appointmentDateInput').datepicker({
+                beforeShowDay: shopClosedDays,
+                firstDay: 1
+            });
+            $('select[id="s2professionalDropdown"]').change(function() {
+                var selectedValue = $(this).val();
+                var dateField = document.getElementById("s2appointmentDateInput");
+
+                if (selectedValue == 'sarah') {
+                    dateField.value = '';
+                    $('#s2appointmentDateInput').datepicker('option', {
+                        beforeShowDay: sarahNonWorkingDays
+                    });
+                } else if (selectedValue == 'emily') {
+                    dateField.value = '';
+                    $('#s2appointmentDateInput').datepicker('option', {
+                        beforeShowDay: emilyNonWorkingDays
+                    });
+                } else if (selectedValue == 'leila') {
+                    dateField.value = '';
+                    $('#s2appointmentDateInput').datepicker('option', {
+                        beforeShowDay: leilaNonWorkingDays
+                    });
+                } else if (selectedValue == '') {
+                    dateField.value = '';
+                    $('#s2appointmentDateInput').datepicker('option', {
+                        beforeShowDay: shopClosedDays
+                    });
+                }
+
+            });
+
+
+            /*For service 3*/
+            $('#s3appointmentDateInput').datepicker({
+                beforeShowDay: shopClosedDays,
+                firstDay: 1
+            });
+            $('select[id="s3professionalDropdown"]').change(function() {
+                var selectedValue = $(this).val();
+                var dateField = document.getElementById("s3appointmentDateInput");
+
+                if (selectedValue == 'sarah') {
+                    dateField.value = '';
+                    $('#s3appointmentDateInput').datepicker('option', {
+                        beforeShowDay: sarahNonWorkingDays
+                    });
+                } else if (selectedValue == 'emily') {
+                    dateField.value = '';
+                    $('#s3appointmentDateInput').datepicker('option', {
+                        beforeShowDay: emilyNonWorkingDays
+                    });
+                } else if (selectedValue == 'leila') {
+                    dateField.value = '';
+                    $('#s3appointmentDateInput').datepicker('option', {
+                        beforeShowDay: leilaNonWorkingDays
+                    });
+                } else if (selectedValue == '') {
+                    dateField.value = '';
+                    $('#s3appointmentDateInput').datepicker('option', {
+                        beforeShowDay: shopClosedDays
+                    });
+                }
+
+            });
+
+            function shopClosedDays(date) {
+                var day = date.getDay(),
+                    Sunday = 0,
+                    Monday = 1,
+                    Tuesday = 2,
+                    Wednesday = 3,
+                    Thursday = 4,
+                    Friday = 5,
+                    Saturday = 6;
+                var closedDays = [Saturday, Sunday];
+
+                if ($.inArray(day, closedDays) > -1) {
+                    return [false, ''];
+                }
+                return [true, ''];
+
+            }
+
+            function sarahNonWorkingDays(date) {
+                var day = date.getDay(),
+                    Sunday = 0,
+                    Monday = 1,
+                    Tuesday = 2,
+                    Wednesday = 3,
+                    Thursday = 4,
+                    Friday = 5,
+                    Saturday = 6;
+                var nonWorkingDays = [Saturday, Sunday, Tuesday, Wednesday, Thursday, Friday];
+
+                if ($.inArray(day, nonWorkingDays) > -1) {
+                    return [false, ''];
+                }
+                return [true, ''];
+            }
+
+            function emilyNonWorkingDays(date) {
+                var day = date.getDay(),
+                    Sunday = 0,
+                    Monday = 1,
+                    Tuesday = 2,
+                    Wednesday = 3,
+                    Thursday = 4,
+                    Friday = 5,
+                    Saturday = 6;
+                var nonWorkingDays = [Saturday, Sunday, Monday, Thursday, Friday];
+
+                if ($.inArray(day, nonWorkingDays) > -1) {
+                    return [false, ''];
+                }
+                return [true, ''];
+            }
+
+            function leilaNonWorkingDays(date) {
+                var day = date.getDay(),
+                    Sunday = 0,
+                    Monday = 1,
+                    Tuesday = 2,
+                    Wednesday = 3,
+                    Thursday = 4,
+                    Friday = 5,
+                    Saturday = 6;
+                var nonWorkingDays = [Saturday, Sunday, Monday, Tuesday, Wednesday];
+
+                if ($.inArray(day, nonWorkingDays) > -1) {
+                    return [false, ''];
+                }
+                return [true, ''];
+            }
+        });
+    </script>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: white">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="images/logo.png" alt="She Repairs logo" width="215px" height="75px">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#home"> <i class="fas fa-home"></i> Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services"> <i class="fas fa-tools"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#team"> <i class="fas fa-users"></i> Our Team
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact"> <i class="fas fa-address-book"></i> Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Home-->
+        <section class="page-section" id="home">
+
+            <div class="jumbotron p-7 p-md-7 text-white rounded bg-light" style="margin-top: 70px; margin-bottom: 30px">
+                <div>
+                    <h2 class="section-heading text-uppercase" style="text-align:center; padding-top: 30px">Glenerin Animal Hospital</h1>
+                        <br>
+                        <img src="images/home_image.png" alt="home_image" style="width:100%">
+                </div>
+            </div>
+        </section>
+        <!-- Booking Success Alert-->
+        <section class="page-section" id="myAlert">
+            <div class="jumbotron p-7 p-md-7 text-black rounded bg-white" style="margin-top: 30px; margin-bottom: 30px">
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>Thank you for booking with us!</strong> We will send you an email with your appointment details at the email address you provided. See you soon! <br> -The Glenerin Animal Hospital Team
+                </div>
+            </div>
+        </section>
+
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" style="padding-top: 100px">Services</h2>
+                <h6 class="section-subheading text-muted"></h6>
+            </div>
+
+            <div class="row text-center" style="margin-top: 30px">
+
+                <div class="col-md-4">
+                    <div class="card" style="width:100%">
+                        <img class="card-img-top" src="images/services/Medical Services.jpg" onmouseover="this.src='images/services/Medical Services_hover.jpg';" onmouseout="this.src='images/services/Medical Services.jpg';" alt="Medical Services_image" style="width:100%" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div class="card-body">
+                            <h4 class="card-title">Medical Services</h4>
+                            <p class="card-text" style="text-align:center">$150</p>
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal1">
+          									<span aria-hidden="true">&times;</span>
+        								</button>
+                                        </div>
+                                        <div class="modal-body" style="margin-right: 120px; margin-left: 120px; margin-bottom: 50px">
+                                            <!-- Service Details Go Here-->
+                                            <h3 class="text-uppercase">Medical Services</h3>
+                                            <br>
+                                            <br>
+                                            <div class="row row-space">
+                                                <div class="col-6">
+                                                    <img class="rounded-circle" src="images/services/Medical Services.jpg" alt="Medical Services" style="width:95%" />
+                                                </div>
+                                                <div class="col-6" style="text-align: left; margin-top: 100px;">
+                                                    <p>We are equipped to handle a wide variety of medical conditions, 
+				including emergencies. Because we can perform many diagnostic procedures in-house, 
+				we can often give you immediate answers and start treating your pet faster</p>
+                                                    <p class="item-intro text-muted" style="text-align:center">Price: $150</p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row row-space">
+                                                <div class="alert alert-primary alert-dismissible fade show" role="alert" id="myAlert">
+                                                    <strong>Thank you for choosing us!</strong> We will send you an email with your appointment details at the email address you provided. See you soon! <br> -The Glenerin Animal Hospital Team
+                                                </div>
+                                            </div>
+                                            <form id="appointmentForm" style="margin-top: 50px">
+                                                <fieldset>
+                                                    <legend class="w-auto">Book an Appointment</legend>
+                                                    <div style="margin: 40px">
+                                                        <h5 style="text-align: left; padding-bottom: 5px"> <i class="fas fa-id-card"></i> Contact Information</h5>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1firstNameInput">First Name *</label>
+                                                                <input class="form-control" id="s1firstNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter Your First Name" required="required" data-toggle="tooltip" data-placement="auto" title="The first name should not contain numbers." oninvalid="setCustomValidity('Please enter a valid first name. The first name should not contain numbers.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1lastNameInput">Last Name *</label>
+                                                                <input class="form-control" id="s1lastNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter Your Last Name" required="required" title="The last name should not contain numbers." oninvalid="setCustomValidity('Please enter a valid last name. The last name should not contain numbers.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s1emailInput">Email *</label>
+                                                            <input class="form-control" id="s1emailInput" type="email" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" placeholder="name@example.com" required="required" title="Please enter your email address." oninvalid="setCustomValidity('Please enter a valid email address with this format : name@example.com')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s1phoneInput">Phone *</label>
+                                                            <input class="form-control" id="s1phoneInput" type="tel" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" placeholder="(xxx) xxx-xxxx" required="required" title="Please enter your phone number." oninvalid="setCustomValidity('Please enter the Phone Number.')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <h5 style="text-align: left; padding-top: 30px; padding-bottom: 5px"> <i class="fas fa-calendar-alt"></i> Appointment</h5>
+                                                        <div style="text-align: left; padding-bottom: 15px">
+                                                            <label for="s1professionalDropdown">Professional *</label>
+                                                            <br>
+                                                            <select class="form-control" id="s1professionalDropdown" class="form-select form-select-lg mb-3" title="Please select a mechanic for your appointment." aria-label=".form-select-lg example" required>
+                                                                <option value="" selected>Select your professional for the booking</option>
+                                                                <option value="sarah">Sarah – Works on Mondays </option>
+                                                                <option value="emily">Emily – Works on Tuesdays and Wednesdays</option>
+                                                                <option value="leila">Leila – Works on Thursdays and Fridays</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1appointmentDateInput">Appointment Date *</label>
+                                                                <input onkeypress="return false;" class="form-control" id="s1appointmentDateInput" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)[0-9]{2}" required="required" title="Please select the date for the appointment."
+                                                                />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1appointmentTimeInput">Appointment Time *</label>
+                                                                <input type="time" class="form-control" id="s1appointmentTimeInput" placeholder="Select the Appointment Time" pattern="\b(0?\d|1[0-2]):[0-5]\d (AM|PM)" required="required" title="Please select the time for the appointment." oninvalid="setCustomValidity('Please select a Time.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <h5 style="text-align: left;padding-top: 30px; padding-bottom: 5px"> <i class="fas fa-credit-card"></i> Payment</h5>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1cardFirstNameInput">Cardholder First Name *</label>
+                                                                <input class="form-control" id="s1cardFirstNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter The Card First Name" required="required" title="Please enter the first name associated with your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the cardholder first name.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1cardLastNameInput">Cardholder Last Name *</label>
+                                                                <input class="form-control" id="s1cardLastNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter The Card Last Name" required="required" title="Please enter the last name associated with your credit card. In case of cancelation, a 25% service fee will be charged to this card."
+                                                                    oninvalid="setCustomValidity('Please enter the cardholder last name.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s1cardNumber">Card Number</label>
+                                                            <input class="form-control" id="s1cardNumber" type="text" pattern="\b(?:\d[ -]*?){16}\b" placeholder="xxxx xxxx xxxx xxxx" required="required" title="In case of cancelation, a 25% service fee will be charged to this card." oninvalid="setCustomValidity('Please enter the card number.')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1cardExpiryInput">Card Expiry *</label>
+                                                                <input class="form-control" id="s1cardExpiryInput" type="text" pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$" placeholder="MM/YY" required="required" title="Please enter the expiry on the front of your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the card expiry.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s1cardCodeInput">Security Code *</label>
+                                                                <input class="form-control" id="s1cardCodeInput" type="text" pattern="^[(\d)]{3}" placeholder="xxx" required="required" title="Please enter the three-digit code on the back of your credit card. In case of cancelation, a 25% service fee will be charged to this card."
+                                                                    oninvalid="setCustomValidity('Please enter the card security code.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <button class="button btn1" id="submitBtn" style="margin-top: 15px" onClick="onClickService1BookBtn()">Book</button>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width:100%">
+                        <img class="card-img-top" src="images/services/Sergical Services.jpg" onmouseover="this.src='images/services/Sergical Services_hover.jpg';" onmouseout="this.src='images/services/Sergical Services.jpg';" alt="Sergical Services_image" style="width:100%" data-toggle="modal" data-target="#exampleModalCenter1">
+                        <div class="card-body">
+                            <h4 class="card-title">Sergical Services</h4>
+                            <p class="card-text" style="text-align:center">$250</p>
+                            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal2">
+          									<span aria-hidden="true">&times;</span>
+        								</button>
+                                        </div>
+                                        <div class="modal-body" style="margin-right: 120px; margin-left: 120px; margin-bottom: 50px">
+                                            <!-- Service Details Go Here-->
+                                            <h3 class="text-uppercase">Sergical Services</h3>
+                                            <br>
+                                            <br>
+                                            <div class="row row-space">
+                                                <div class="col-6">
+                                                    <img class="rounded-circle" src="images/services/Sergical Services.jpg" alt="Sergical Services" style="width:95%" />
+                                                </div>
+                                                <div class="col-6" style="text-align: left; margin-top: 100px;">
+                                                    <p>Our veterinarians provide many surgical services at our clinic, 
+				ranging from routine to advanced procedures. Because we want to ensure 
+				that our patients receive the best possible outcome, we occasionally refer 
+				them to specialists (board-certified veterinary surgeons) to perform complex 
+				operations when advanced equipment or training will be beneficial.</p>
+                                                    <p class="item-intro text-muted" style="text-align:center">Price: $250</p>
+                                                </div>
+                                            </div>
+
+                                            <form id="appointmentForm" style="margin-top: 50px">
+                                                <fieldset>
+                                                    <legend class="w-auto">Book an Appointment</legend>
+                                                    <div style="margin: 40px">
+                                                        <h5 style="text-align: left; padding-bottom: 5px"> <i class="fas fa-id-card"></i> Contact Information</h5>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2firstNameInput">First Name *</label>
+                                                                <input class="form-control" id="s2firstNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter Your First Name" required="required" title="The first name should not contain numbers." oninvalid="setCustomValidity('Please enter a valid first name. The first name should not contain numbers.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2lastNameInput">Last Name *</label>
+                                                                <input class="form-control" id="s2lastNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter Your Last Name" required="required" title="The last name should not contain numbers." oninvalid="setCustomValidity('Please enter a valid last name. The last name should not contain numbers.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s2emailInput">Email *</label>
+                                                            <input class="form-control" id="s2emailInput" type="email" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" placeholder="name@example.com" required="required" title="Please enter your email address." oninvalid="setCustomValidity('Please enter a valid email address with this format : name@example.com')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s2phoneInput">Phone *</label>
+                                                            <input class="form-control" id="s2phoneInput" type="tel" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" placeholder="(xxx) xxx-xxxx" required="required" title="Please enter your phone number." oninvalid="setCustomValidity('Please enter the Phone Number.')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <h5 style="text-align: left; padding-top: 30px; padding-bottom: 5px"> <i class="fas fa-calendar-alt"></i> Appointment</h5>
+                                                        <div style="text-align: left; padding-bottom: 15px">
+                                                            <label for="s2professionalDropdown">Professional *</label>
+                                                            <br>
+                                                            <select class="form-control" id="s2professionalDropdown" class="form-select form-select-lg mb-3" title="Please select a mechanic for your appointment." aria-label=".form-select-lg example" required>
+                                                                <option value="" selected>Select your professional for the booking</option>
+                                                                <option value="sarah">Sarah – Works on Mondays </option>
+                                                                <option value="emily">Emily – Works on Tuesdays and Wednesdays</option>
+                                                                <option value="leila">Leila – Works on Thursdays and Fridays</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2appointmentDateInput">Appointment Date *</label>
+                                                                <input onkeypress="return false;" class="form-control" id="s2appointmentDateInput" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)[0-9]{2}" required="required" title="Please select the date for the appointment."
+                                                                />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2appointmentTimeInput">Appointment Time *</label>
+                                                                <input type="time" class="form-control" id="s2appointmentTimeInput" placeholder="Select the Appointment Time" pattern="\b(0?\d|1[0-2]):[0-5]\d (AM|PM)" required="required" title="Please select the time for the appointment." oninvalid="setCustomValidity('Please select a Time.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <h5 style="text-align: left;padding-top: 30px; padding-bottom: 5px"> <i class="fas fa-credit-card"></i> Payment</h5>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2cardFirstNameInput">Cardholder First Name *</label>
+                                                                <input class="form-control" id="s2cardFirstNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter The Card First Name" required="required" title="Please enter the first name associated with your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the cardholder first name.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2cardLastNameInput">Cardholder Last Name *</label>
+                                                                <input class="form-control" id="s2cardLastNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter The Card Last Name" required="required" title="Please enter the last name associated with your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the cardholder last name.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s2cardNumber">Card Number</label>
+                                                            <input class="form-control" id="s2cardNumber" type="text" pattern="\b(?:\d[ -]*?){16}\b" placeholder="xxxx xxxx xxxx xxxx" required="required" title="In case of cancelation, a 25% service fee will be charged to this card." oninvalid="setCustomValidity('Please enter the card number.')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2cardExpiryInput">Card Expiry *</label>
+                                                                <input class="form-control" id="s2cardExpiryInput" type="text" pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$" placeholder="MM/YY" required="required" title="Please enter the expiry on the front of your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the card expiry.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s2cardCodeInput">Security Code *</label>
+                                                                <input class="form-control" id="s2cardCodeInput" type="text" pattern="^[(\d)]{3}" placeholder="xxx" required="required" title="Please enter the three-digit code on the back of your credit card. In case of cancelation, a 25% service fee will be charged to this card."
+                                                                    oninvalid="setCustomValidity('Please enter the card security code.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <button class="button btn1" id="submitBtn" style="margin-top: 15px" onClick="onClickService2BookBtn()">Book</button>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width:100%">
+                        <img class="card-img-top" src="images/services/Wellness & Vaccinations.jpg" onmouseover="this.src='images/services/Wellness & Vaccinations_hover.jpg';" onmouseout="this.src='images/services/Wellness & Vaccinations.jpg';" alt="Wellness & Vaccinations_image" style="width:100%" data-toggle="modal" data-target="#exampleModalCenter3">
+                        <div class="card-body">
+                            <h4 class="card-title">Wellness & Vaccinations</h4>
+                            <p class="card-text" style="text-align:center">$300</p>
+                            <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal3">
+          									<span aria-hidden="true">&times;</span>
+        								</button>
+                                        </div>
+                                        <div class="modal-body" style="margin-right: 120px; margin-left: 120px; margin-bottom: 50px">
+                                            <!-- Service Details Go Here-->
+                                            <h3 class="text-uppercase">Bike Overhaul</h3>
+                                            <br>
+                                            <br>
+                                            <div class="row row-space">
+                                                <div class="col-6">
+                                                    <img class="rounded-circle" src="images/services/Wellness & Vaccinations.jpg" alt="Wellness & Vaccinations" style="width:95%" />
+                                                </div>
+                                                <div class="col-6" style="text-align: left; margin-top: 100px;">
+                                                    <p> elp us keep your pet healthy by bringing him or her in for regular exams 
+				and vaccinations. Dogs and cats (and other pets) age far faster than people, 
+				so significant changes in your pet’s health can happen in a short time. 
+				Wellness programs allow us to diagnose diseases and conditions early, 
+				when they’re easier to treat or manage.</p>
+                                                    <p class="item-intro text-muted" style="text-align:center">Price: $300</p>
+                                                </div>
+                                            </div>
+
+                                            <form id="appointmentForm" style="margin-top: 50px">
+                                                <fieldset>
+                                                    <legend class="w-auto">Book an Appointment</legend>
+                                                    <div style="margin: 40px">
+                                                        <h5 style="text-align: left; padding-bottom: 5px"> <i class="fas fa-id-card"></i> Contact Information</h5>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3firstNameInput">First Name *</label>
+                                                                <input class="form-control" id="s3firstNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter Your First Name" required="required" title="The first name should not contain numbers." oninvalid="setCustomValidity('Please enter a valid first name. The first name should not contain numbers.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3lastNameInput">Last Name *</label>
+                                                                <input class="form-control" id="s3lastNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter Your Last Name" required="required" title="The last name should not contain numbers." oninvalid="setCustomValidity('Please enter a valid last name. The last name should not contain numbers.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s3emailInput">Email *</label>
+                                                            <input class="form-control" id="s3emailInput" type="email" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" placeholder="name@example.com" required="required" title="Please enter your email address." oninvalid="setCustomValidity('Please enter a valid email address with this format : name@example.com')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s3phoneInput">Phone *</label>
+                                                            <input class="form-control" id="s3phoneInput" type="tel" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" placeholder="(xxx) xxx-xxxx" required="required" title="Please enter your phone number." oninvalid="setCustomValidity('Please enter the Phone Number.')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <h5 style="text-align: left; padding-top: 30px; padding-bottom: 5px"> <i class="fas fa-calendar-alt"></i> Appointment</h5>
+                                                        <div style="text-align: left; padding-bottom: 15px">
+                                                            <label for="s3professionalDropdown">Professional *</label>
+                                                            <br>
+                                                            <select class="form-control" id="s3professionalDropdown" class="form-select form-select-lg mb-3" title="Please select a mechanic for your appointment." aria-label=".form-select-lg example" required>
+                                                                <option value="" selected>Select your professional for the booking</option>
+                                                                <option value="sarah">Sarah – Works on Mondays </option>
+                                                                <option value="emily">Emily – Works on Tuesdays and Wednesdays</option>
+                                                                <option value="leila">Leila – Works on Thursdays and Fridays</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3appointmentDateInput">Appointment Date *</label>
+                                                                <input onkeypress="return false;" class="form-control" id="s3appointmentDateInput" placeholder="MM/DD/YYYY" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)[0-9]{2}" required="required" title="Please select the date for the appointment."
+                                                                />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3appointmentTimeInput">Appointment Time *</label>
+                                                                <input type="time" class="form-control" id="s3appointmentTimeInput" placeholder="Select the Appointment Time" pattern="\b(0?\d|1[0-2]):[0-5]\d (AM|PM)" required="required" title="Please select the time for the appointment." oninvalid="setCustomValidity('Please select a Time.')"
+                                                                    oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <h5 style="text-align: left;padding-top: 30px; padding-bottom: 5px"> <i class="fas fa-credit-card"></i> Payment</h5>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3cardFirstNameInput">Cardholder First Name *</label>
+                                                                <input class="form-control" id="s3cardFirstNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter The Card First Name" required="required" title="Please enter the first name associated with your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the cardholder first name.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3cardLastNameInput">Cardholder Last Name *</label>
+                                                                <input class="form-control" id="s3cardLastNameInput" type="text" pattern="^[(a-zA-Z ,.'-)]+" placeholder="Enter The Card Last Name" required="required" title="Please enter the last name associated with your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the cardholder last name.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="text-align: left;">
+                                                            <label for="s3cardNumber">Card Number</label>
+                                                            <input class="form-control" id="s3cardNumber" type="text" pattern="\b(?:\d[ -]*?){16}\b" placeholder="xxxx xxxx xxxx xxxx" required="required" title="In case of cancelation, a 25% service fee will be charged to this card." oninvalid="setCustomValidity('Please enter the card number.')"
+                                                                oninput="setCustomValidity('')" />
+                                                            <p class="help-block text-danger"></p>
+                                                        </div>
+                                                        <div class="row row-space">
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3cardExpiryInput">Card Expiry *</label>
+                                                                <input class="form-control" id="s3cardExpiryInput" type="text" pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$" placeholder="MM/YY" required="required" title="Please enter the expiry on the front of your credit card. In case of cancelation, a 25% service fee will be charged."
+                                                                    oninvalid="setCustomValidity('Please enter the card expiry.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                            <div class="col-6" style="text-align: left;">
+                                                                <label for="s3cardCodeInput">Security Code *</label>
+                                                                <input class="form-control" id="s3cardCodeInput" type="text" pattern="^[(\d)]{3}" placeholder="xxx" required="required" title="Please enter the three-digit code on the back of your credit card. In case of cancelation, a 25% service fee will be charged to this card."
+                                                                    oninvalid="setCustomValidity('Please enter the card security code.')" oninput="setCustomValidity('')" />
+                                                                <p class="help-block text-danger"></p>
+                                                            </div>
+                                                        </div>
+                                                        <button class="button btn1" id="submitBtn" style="margin-top: 15px" onClick="onClickService3BookBtn()">Book</button>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Team-->
+        <section class="page-section" id="team">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" style="padding-top: 100px">Our Team</h2>
+                <h6 class="section-subheading text-muted"> Meet the Veterinarians & Team of Glen Erin Animal Hospital in Mississauga! We’re pleased to provide exceptional vet care for your pets!
+                </h6>
+            </div>
+
+            <div class="row text-center" style="margin-top: 30px">
+
+                <div class="col-md-4">
+                    <img class="rounded-circle" src="images/employees/sarah.jpg" alt="team member 1" data-holder-rendered="true" style="width:65%">
+                    <h4 style="margin-top: 20px">Dr. Sarah Thompson</h4>
+                    <p>Dr. Thompson has known that she would be a veterinarian since she was 9 years old. The driving reason then and now is her love of all animals. As a consequence, over the years she has cared for and functioned as staff for many dogs, a dozen cats and a variety of birds, rabbits, hamsters, tortoises, turtles and one mouse. 
+					These personal and emotional experiences have made her an empathetic and compassionate veterinarian. Sarah works on Mondays.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <img class="rounded-circle" src="images/employees/Emily.jpg" alt="team member 2" data-holder-rendered="true" style="width:65%">
+                    <h4 style="margin-top: 20px">Dr. Emily Sudds</h4>
+                    <p>Dr. Emily Sudds joined Glen Erin Animal Hospital and Meadowvale Animal Clinic in 1999 after graduating from the Ontario Veterinary College.
+
+She enjoys all aspects of general practice but is particularly interested in internal medicine, dermatology, and preventive medicine. Dr. Emily loves working with cats and dogs and especially likes getting to know her patients and their families. 
+When away from work, Dr. Emily is usually busy spending time with her husband and two kids, as well as their kitty, guinea pig and rabbit. Emily works on Tuesdays and Wednesdays.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <img class="rounded-circle" src="images/employees/Leila.jpg" alt="team member 3" data-holder-rendered="true" style="width:65%">
+                    <h4 style="margin-top: 20px">GDr. Leila Denstedt</h4>
+                    <p>GDr. Leila Denstedt told her parents at the age of 5 that she wanted to be a veterinarian. She always had pets growing up, and as soon as she turned 13, Leila started volunteering at veterinary clinics in order to pursue her goal! She continued to work at veterinary clinics throughout high school, 
+					as well as during her undergraduate degree, where she obtained her Bachelor of Science from the University of Guelph. Leila works on Thursdays and Fridays.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us-->
+        <section class="page-section" id="contact" style="margin-top: 80px">
+            <footer class="bg-light text-lg-start">
+                <div class="container p-5">
+                    <h2 class="section-heading text-uppercase" style="padding-top: 80px">Contact Us</h2> <br/>
+                    <h6 class="section-subheading text-muted" style="text-align: left">Visit Us: 3-2111 Dunwin Dr, Mississauga ON L5L 3C1, Canada</h6>
+                    <h6 class="section-subheading text-muted" style="text-align: left">Call Us: (905)-822-9974</h6>
+                    <h6 class="section-subheading text-muted" style="padding-bottom: 190px; text-align: left">Email Us: info@glenerinanimalhospital.com</h6><br/><br/>
+                </div>
+            </footer>
+        </section>
+
+        <p id="signature" style="padding-top: 20px">Site created by A&H</p>
+    </div>
+    <!-- /.container -->
+
+</body>
+
+</html>
